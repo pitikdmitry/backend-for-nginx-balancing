@@ -1,0 +1,13 @@
+1) http section:
+
+upstream backend  {
+    least_conn;
+  server 77.244.215.202 weight=1 max_fails=3;
+  server 82.202.246.134 weight=1 max_fails=3;
+  server 92.53.91.245 weight=1 max_fails=3;
+}
+
+2) server section:
+location / {
+    proxy_pass  http://backend;
+}
