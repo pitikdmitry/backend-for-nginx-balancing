@@ -12,4 +12,4 @@ RUN pip install -r /my_application/requirements.txt
 USER root
 WORKDIR /my_application
 
-CMD gunicorn --bind 0.0.0.0:8000 wsgi
+CMD gunicorn --bind 0.0.0.0:5000 wsgi:app -w 4
