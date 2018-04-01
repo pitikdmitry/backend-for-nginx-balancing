@@ -1,3 +1,8 @@
+nginx_proxy:
+ip: 92.53.91.253
+login: root
+password: nijfdjjnx2
+
 backend1:
 ip: 77.244.215.202
 login: root
