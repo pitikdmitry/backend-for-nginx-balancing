@@ -23,6 +23,5 @@ def create():
 
     if status_code == STATUS_CODE['OK']:
         return jsonify(data)
-# add commetn
 
     return make_response("", status_code)
