@@ -1,9 +1,11 @@
+import statsd
 from flask import Blueprint, request, make_response, jsonify
 
 from app.repositories.users_repository import UsersRepository
 
 users_blueprint_obj = Blueprint('users', __name__)
 users_repository = UsersRepository()
+c = statsd.StatsClient('95.213.200.95', 8125, prefix='backend1')
 
 STATUS_CODE = {
     'OK': 200,
@@ -14,8 +16,13 @@ STATUS_CODE = {
 }
 
 
+def use_stats_d():
+    c.incr('backend1')
+
+
 @users_blueprint_obj.route('/create', methods=['POST'])
 def create_echo():
+    use_stats_d()
     data = request.data
     if data == b'':
         return make_response("", STATUS_CODE['UNAUTHORIZED'])
@@ -30,6 +37,7 @@ def create_echo():
 
 @users_blueprint_obj.route('/', methods=['GET'])
 def get_user():
+    use_stats_d()
 
     status_code = STATUS_CODE.get("OK")
 
