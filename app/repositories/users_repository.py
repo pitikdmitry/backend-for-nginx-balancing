@@ -14,6 +14,6 @@ class UsersRepository:
     def __init__(self):
         pass
 
-    def create(self, data) -> int:
+    def create(self, data):
         sleep(0.5)
         return STATUS_CODE['OK']

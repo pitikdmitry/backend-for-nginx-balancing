@@ -1,4 +1,4 @@
-from flask import Blueprint, request, make_response, jsonify, json
+from flask import Blueprint, request, make_response, jsonify
 
 from app.repositories.users_repository import UsersRepository
 
@@ -16,12 +16,10 @@ STATUS_CODE = {
 
 @users_blueprint.route('/create', methods=['POST'])
 def create_echo():
-    request2 = request
     data = request.data
     if data == b'':
         return make_response("", STATUS_CODE['UNAUTHORIZED'])
 
-    # data = json.loads(bytes_data)
     status_code = users_repository.create(data)
 
     if status_code == STATUS_CODE['OK']:
