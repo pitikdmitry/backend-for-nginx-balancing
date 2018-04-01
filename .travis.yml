@@ -6,7 +6,7 @@ rm -f deploy_rsa deploy_rsa.pub
 git add deploy_rsa.enc .travis.yml
 
 addons:
-  ssh_known_hosts: <deploy-host>
+  ssh_known_hosts: 77.244.215.202
 
 before_deploy:
 - openssl aes-256-cbc -K $encrypted_<...>_key -iv $encrypted_<...>_iv -in deploy_rsa.enc -out /tmp/deploy_rsa -d
