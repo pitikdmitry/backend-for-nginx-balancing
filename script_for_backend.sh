@@ -8,6 +8,7 @@ sudo apt-add-repository 'deb https://apt.dockerproject.org/repo ubuntu-xenial ma
 sudo apt-get update;
 sudo apt-get install -y docker-engine;
 
+sudo docker rm -f $(sudo docker ps -aq)
 sudo docker build -t friendlyhello .
 sudo docker run -d -p 5000:5000 friendlyhello
 
