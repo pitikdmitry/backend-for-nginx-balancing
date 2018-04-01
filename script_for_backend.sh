@@ -1,8 +1,6 @@
 sudo apt-get update;
 sudo apt-get install nginx;
 
-cd ~/backend-nginx;
-
 sudo mv default /etc/nginx/sites-enabled;
 sudo nginx -s reload;
 sudo apt-get update;
