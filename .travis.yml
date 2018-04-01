@@ -1,3 +1,5 @@
+language: generic
+
 addons:
   ssh_known_hosts: 77.244.215.202
 
