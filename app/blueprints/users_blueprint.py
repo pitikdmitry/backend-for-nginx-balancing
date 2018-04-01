@@ -1,10 +1,9 @@
 import statsd
+from time import sleep
 from flask import Blueprint, request, make_response, jsonify
 
-from app.repositories.users_repository import UsersRepository
 
 users_blueprint_obj = Blueprint('users', __name__)
-users_repository = UsersRepository()
 c = statsd.StatsClient('95.213.200.95', 8125, prefix='backend1')
 
 STATUS_CODE = {
@@ -27,19 +26,13 @@ def create_echo():
     if data == b'':
         return make_response("", STATUS_CODE['UNAUTHORIZED'])
 
-    status_code = users_repository.create(data)
-
-    if status_code == STATUS_CODE['OK']:
-        return data
-    else:
-        return make_response("", status_code)
+    sleep(0.5)
+    return data
 
 
 @users_blueprint_obj.route('/', methods=['GET'])
 def get_user():
     use_stats_d()
 
-    status_code = STATUS_CODE.get("OK")
-
-    if status_code == STATUS_CODE['OK']:
-        return jsonify("HELLO!")
+    sleep(0.5)
+    return jsonify("HELLO!")
