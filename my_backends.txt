@@ -3,6 +3,16 @@ ip: 77.244.215.202
 login: root
 password: sbpaygbvu0
 
+backend2:
+ip: 82.202.246.134
+login: root
+password: 6sqxaas0fn
+
+backend3:
+ip: 92.53.91.245
+login: root
+password: h68coa2o32
+
 backend_graphana:
 ip: 95.213.200.95
 login: root
