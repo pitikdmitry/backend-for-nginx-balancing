@@ -2,7 +2,7 @@ from flask import Blueprint, request, make_response, jsonify
 
 from app.repositories.users_repository import UsersRepository
 
-users_blueprint = Blueprint('users', __name__)
+users_blueprint_obj = Blueprint('users', __name__)
 users_repository = UsersRepository()
 
 STATUS_CODE = {
@@ -14,7 +14,7 @@ STATUS_CODE = {
 }
 
 
-@users_blueprint.route('/create', methods=['POST'])
+@users_blueprint_obj.route('/create', methods=['POST'])
 def create_echo():
     data = request.data
     if data == b'':
@@ -28,7 +28,7 @@ def create_echo():
         return make_response("", status_code)
 
 
-@users_blueprint.route('/', methods=['GET'])
+@users_blueprint_obj.route('/', methods=['GET'])
 def get_user():
 
     status_code = STATUS_CODE.get("OK")
