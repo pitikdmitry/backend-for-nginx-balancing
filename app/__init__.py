@@ -1,7 +1,7 @@
 from flask import Flask
 
-from config import app_config
 from app.blueprints.users_blueprint import users_blueprint
+from instance.config import app_config
 
 
 def create_app(config_name):
