@@ -1,4 +1,6 @@
 # backend-for-nginx-balancing
 
-sudo docker build -t friendlyhello .
-sudo docker run -p 5000:5000 friendlyhello
+Configuring nginx for load balancing. Deploying simple flask application on virtual machines.
+
+sudo docker build -t simpleServer .
+sudo docker run -p 5000:5000 simpleServer
